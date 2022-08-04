@@ -8,30 +8,30 @@ Static website hosting using aws s3 and cloudfront
 <details>
   <summary> Contents </summary>
   <ol>
-    <li><a href="#abt"> About The Project </a></li>
+    <li><a href="#About"> About The Project </a></li>
   </ol>
    <ol>
-    <li><a href="#enp"> Endpoints </a></li>
+    <li><a href="#Endpoints"> Endpoints </a></li>
   </ol>
    <ol>
-    <li><a href="#sc"> Screenshots </a></li>
+    <li><a href="#Screenshots"> Screenshots </a></li>
   </ol>
   
   </details>
   
-  ## abt
+  ## About
   Hosting of static blog website using aws s3 bucket and cloudfront for distribution
   S3 bucket named cloudtravelblog is created and the static sites files are uploaded to the bucket
   S3 is configured for static hosting and IAM policy is created to make the bucket objects public
   Cloudfront distribution is created and configured to route http to https for the bucket endpoint
-  ###
-  ##enp
+
+  ## Endpoints
   <div align="center">
 <a href="http://cloudtravelblog.s3-website-us-east-1.amazonaws.com">Bucket endpoint</a>
 <a href="https://d3jpm5gns8wifo.cloudfront.net">Cloud front endpoint</a>
   </div>
-  ###
-  ##sc
+  
+  ## Screenshots
   <div>
   <h3> Screenshot of Created S3 Bucket</h3>
   <img src="images/sc1.JPG" width="900" height="400" />
