@@ -1,6 +1,9 @@
-# udacity-project-1
+# Project 1
 
-<a name="readme-top">Read me</a>
+Hosting of static blog website using aws s3 bucket and cloudfront for distribution
+S3 bucket named cloudtravelblog is created and the static sites files are uploaded to the bucket
+S3 is configured for static hosting and IAM policy is created to make the bucket objects public
+Cloudfront distribution is created and configured to route http to https for the bucket endpoint
 
 <div align="center">
 <a href="http://cloudtravelblog.s3-website-us-east-1.amazonaws.com">Static Website URL </a>
@@ -9,11 +12,8 @@
 Static website hosting using aws s3 and cloudfront for distribution
 <details>
   <summary> Contents </summary>
-  <ol>
-    <li><a href="#About"> About The Project </a></li>
-  </ol>
    <ol>
-    <li><a href="#Endpoints"> Endpoints </a></li>
+    <li><a href="#Endpoints"> Site URL</a></li>
   </ol>
    <ol>
     <li><a href="#Screenshots"> Screenshots </a></li>
@@ -23,17 +23,11 @@ Static website hosting using aws s3 and cloudfront for distribution
   </ol>
   </details>
   
-  ## About
-  Hosting of static blog website using aws s3 bucket and cloudfront for distribution
-  S3 bucket named cloudtravelblog is created and the static sites files are uploaded to the bucket
-  S3 is configured for static hosting and IAM policy is created to make the bucket objects public
-  Cloudfront distribution is created and configured to route http to https for the bucket endpoint
-
 ## Endpoints
 
   <div align="center">
-<a href="http://cloudtravelblog.s3-website-us-east-1.amazonaws.com">Bucket endpoint</a>
-<a href="https://d3jpm5gns8wifo.cloudfront.net">Cloud front endpoint</a>
+<a href="http://cloudtravelblog.s3-website-us-east-1.amazonaws.com">S3 Bucket Host URL</a>
+<a href="https://d3jpm5gns8wifo.cloudfront.net">Cloud front distribution URL</a>
   </div>
   
   ## Screenshots
