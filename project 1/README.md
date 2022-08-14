@@ -1,10 +1,12 @@
 # udacity-project-1
+
 <a name="readme-top">Read me</a>
+
 <div align="center">
-<a href="http://cloudtravelblog.s3-website-us-east-1.amazonaws.com">Bucket endpoint</a>
+<a href="http://cloudtravelblog.s3-website-us-east-1.amazonaws.com">Static Website URL </a>
 <a href="https://d3jpm5gns8wifo.cloudfront.net">Cloud front endpoint</a>
   </div>
-Static website hosting using aws s3 and cloudfront
+Static website hosting using aws s3 and cloudfront for distribution
 <details>
   <summary> Contents </summary>
   <ol>
@@ -16,7 +18,9 @@ Static website hosting using aws s3 and cloudfront
    <ol>
     <li><a href="#Screenshots"> Screenshots </a></li>
   </ol>
-  
+  <ol>
+    <li><a href="#site">Sites Content </a></li>
+  </ol>
   </details>
   
   ## About
@@ -25,7 +29,8 @@ Static website hosting using aws s3 and cloudfront
   S3 is configured for static hosting and IAM policy is created to make the bucket objects public
   Cloudfront distribution is created and configured to route http to https for the bucket endpoint
 
-  ## Endpoints
+## Endpoints
+
   <div align="center">
 <a href="http://cloudtravelblog.s3-website-us-east-1.amazonaws.com">Bucket endpoint</a>
 <a href="https://d3jpm5gns8wifo.cloudfront.net">Cloud front endpoint</a>
@@ -57,3 +62,5 @@ Static website hosting using aws s3 and cloudfront
   <img src="images/sc6.JPG" width="900" height="400" />
   </div>
   
+  ## site
+  <a href="udacity-starter-website">Static Website Files</a>
