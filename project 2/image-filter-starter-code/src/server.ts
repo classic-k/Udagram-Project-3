@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import path from "path";
 import bodyParser from "body-parser";
 import {
@@ -20,32 +20,44 @@ import {
   app.use(bodyParser.json());
 
   app.get("/", async (req, res) => {
-    res.send("try GET /filteredimage?image_url={{}}");
+    res.status(200).send({
+      message: "try GET /filteredimage?image_url={{}}",
+      status_code: 200,
+    });
   });
 
   app.get("/filteredimage", apiKey, async (req, res) => {
     let url = req.query.image_url;
-    console.log(url);
+
     if (!url || !vetUrl(url)) {
-      return res.status(200).send("Provide a valid jpeg image url");
+      return res
+        .status(400)
+        .send({ message: "Provide a valid jpeg image url", status_code: 400 });
     }
     filterImageFromURL(url)
       .then((outpath) => {
-        res.sendFile(outpath);
+        res.status(201).sendFile(outpath);
       })
       .catch((err) => {
-        //console.log(err);
-        res.send("URL not pointing to image or invalid");
+        res.status(400).send({
+          message: "URL not pointing to image or invalid",
+          status_code: 400,
+        });
       })
       .finally(() => {
         let folder = __dirname;
         folder = path.join(folder, "tmp");
-        let lst = listdir(folder);
-
-        deleteLocalFiles(lst).then();
+        listdir(folder, deleteLocalFiles);
+        //deleteLocalFiles(lst).then()
       });
   });
 
+  app.use((req, res, next) => {
+    res.status(404).send({ message: "Route not found", status_code: 404 });
+  });
+  app.use((err: Error, req: Request, res: Response, next: () => any) => {
+    res.status(500).send({ mesaage: "An error occur", status_code: 500 });
+  });
   // Start the Server
   app.listen(port, () => {
     console.log(`server running http://localhost:${port}`);

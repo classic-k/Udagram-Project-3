@@ -9,7 +9,7 @@
       "name": "http://image-filter-dev2222.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
       "request": {
         "method": "GET",
-        "header": [],
+        "header": [{ "X-API-KEY": "{{APIKEY}}" }],
         "url": {
           "raw": "http://{{HOST}}/filteredimage?image_url=https://images.freeimages.com/images/large-previews/3c2/little-roberto-and-vitoria-1177528.jpg",
           "protocol": "http",
@@ -49,6 +49,12 @@
       "id": "1df3d31a-de30-494b-a3d0-f1228dd8713c",
       "key": "HOST",
       "value": "image-filter-dev2222.us-east-1.elasticbeanstalk.com",
+      "type": "string"
+    },
+    {
+      "id": "1df3d31a-de30-494b-a3d0-f1228dd87009o",
+      "key": "APIKEY",
+      "value": "sk_cloudtravel",
       "type": "string"
     }
   ]
