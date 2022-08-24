@@ -48,7 +48,6 @@ import {
         let folder = __dirname;
         folder = path.join(folder, "tmp");
         listdir(folder, deleteLocalFiles);
-        //deleteLocalFiles(lst).then()
       });
   });
 
