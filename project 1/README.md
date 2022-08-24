@@ -7,9 +7,7 @@ Cloudfront distribution is created and configured to route http to https for the
 
 <div align="center">
 <a href="http://cloudtravelblog.s3-website-us-east-1.amazonaws.com">Static Website URL </a>
-<a href="https://d3jpm5gns8wifo.cloudfront.net">Cloud front endpoint</a>
   </div>
-Static website hosting using aws s3 and cloudfront for distribution
 <details>
   <summary> Contents </summary>
    <ol>
@@ -22,11 +20,11 @@ Static website hosting using aws s3 and cloudfront for distribution
     <li><a href="#site">Sites Content </a></li>
   </ol>
   </details>
-  
+
 ## Endpoints
 
   <div align="center">
-<a href="http://cloudtravelblog.s3-website-us-east-1.amazonaws.com">S3 Bucket Host URL</a>
+<a href="http://cloudtravelblog.s3-website-us-east-1.amazonaws.com">S3 Bucket Host URL</a><br>
 <a href="https://d3jpm5gns8wifo.cloudfront.net">Cloud front distribution URL</a>
   </div>
   
