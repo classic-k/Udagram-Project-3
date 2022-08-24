@@ -17,7 +17,7 @@ Cloudfront distribution is created and configured to route http to https for the
     <li><a href="#Screenshots"> Screenshots </a></li>
   </ol>
   <ol>
-    <li><a href="#site">Sites Content </a></li>
+    <li><a href="#Static Site Files">Sites Content </a></li>
   </ol>
   </details>
 
@@ -54,5 +54,6 @@ Cloudfront distribution is created and configured to route http to https for the
   <img src="images/sc6.JPG" width="900" height="400" />
   </div>
   
-  ## site
-  <a href="udacity-starter-website">Static Website Files</a>
+  ## Static Site Files
+
+<a href="udacity-starter-website">Static Website Files</a>
