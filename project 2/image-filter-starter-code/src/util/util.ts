@@ -2,6 +2,7 @@ import fs from "fs";
 import { Request, Response } from "express";
 import Jimp = require("jimp");
 import path from "path";
+//import axios from "axios";
 
 // filterImageFromURL
 // helper function to download, filter, and save the filtered image locally
@@ -28,6 +29,7 @@ export async function filterImageFromURL(inputURL: string): Promise<string> {
           resolve(path.join(__dirname, "..", outpath));
         });
     } catch (error) {
+      console.log(error);
       reject(error);
     }
   });
