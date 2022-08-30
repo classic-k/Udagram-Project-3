@@ -19,14 +19,14 @@ import {
   // Use the body parser middleware for post requests
   app.use(bodyParser.json());
 
-  app.get("/", async (req, res) => {
+  app.get("/", async (req: Request, res: Response) => {
     res.status(200).send({
       message: "try GET /filteredimage?image_url={{}}",
       status_code: 200,
     });
   });
 
-  app.get("/filteredimage", apiKey, async (req, res) => {
+  app.get("/filteredimage", apiKey, async (req: Request, res: Response) => {
     let url = req.query.image_url;
 
     if (!url || !vetUrl(url)) {
@@ -51,7 +51,7 @@ import {
       });
   });
 
-  app.use((req, res, next) => {
+  app.use((req: Request, res: Response, next: () => any) => {
     res.status(404).send({ message: "Route not found", status_code: 404 });
   });
   app.use((err: Error, req: Request, res: Response, next: () => any) => {
