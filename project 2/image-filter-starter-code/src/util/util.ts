@@ -2,6 +2,7 @@ import fs from "fs";
 import { Request, Response } from "express";
 import Jimp = require("jimp");
 import path from "path";
+import axios from "axios";
 //import axios from "axios";
 
 // filterImageFromURL
@@ -15,19 +16,21 @@ import path from "path";
 export async function filterImageFromURL(inputURL: string): Promise<string> {
   return new Promise(async (resolve, reject) => {
     try {
-      const photo = await Jimp.read(inputURL);
+      const res = await axios.get(inputURL, { responseType: "arraybuffer" });
+      const img_streams = res.data;
+      const photo = await Jimp.read(img_streams);
       const outpath = path.join(
         "tmp",
         "filtered." + Math.floor(Math.random() * 2000) + ".jpg"
       );
-
-      await photo
-        .resize(256, 256) // resize
-        .quality(60) // set JPEG quality
-        .greyscale() // set greyscale
-        .write(path.join(__dirname, "..", outpath), (img) => {
-          resolve(path.join(__dirname, "..", outpath));
-        });
+      // console.log(photo);
+      // const img =  await photo
+      photo.resize(256, 256);
+      photo.quality(60); // set JPEG quality
+      photo.greyscale(); // set greyscale
+      photo.write(path.join(__dirname, "..", outpath), (img) => {
+        resolve(path.join(__dirname, "..", outpath));
+      });
     } catch (error) {
       console.log(error);
       reject(error);
@@ -63,7 +66,7 @@ export function listdir(
 }
 export function vetUrl(url: string): boolean {
   const pattern = /http|https:\/\/(www\.)?[a-zA-Z0-9.]+\.[a-zA-Z0-9]+\/\w+/i; ///http|https:\/\/(www\.)?[a-zA-Z0-9.]+\.[a-zA-Z0-9]+\/\w+/i;
-
+  console.log("Invalid url");
   return pattern.test(url); //&& url.endsWith(".jpg");
 }
 

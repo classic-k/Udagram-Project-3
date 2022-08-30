@@ -27,9 +27,10 @@ import {
   });
 
   app.get("/filteredimage", apiKey, async (req: Request, res: Response) => {
-    let url = req.query.image_url;
-
-    if (!url || !vetUrl(url)) {
+    let url: string = req.query.image_url;
+    console.log(url);
+    if (!url) {
+      //|| !vetUrl(url)) {
       return res
         .status(400)
         .send({ message: "Provide a valid jpeg image url", status_code: 400 });
@@ -39,9 +40,9 @@ import {
         res.status(201).sendFile(outpath);
       })
       .catch((err) => {
-        res.status(400).send({
-          message: "URL not pointing to image or invalid",
-          status_code: 400,
+        res.status(500).send({
+          message: "An error occur try again",
+          status_code: 500,
         });
       })
       .finally(() => {
