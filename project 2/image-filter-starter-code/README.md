@@ -14,9 +14,7 @@ I make use of the finally in exceptions catching to delete after sending respons
    <ol>
     <li><a href="#Screenshots"> Screenshots </a></li>
   </ol>
-  <ol>
-    <li><a href="#Other Pages">Other Pages</a></li>
-  </ol>
+  
   </details>
 
 ## Endpoints
@@ -43,8 +41,4 @@ I make use of the finally in exceptions catching to delete after sending respons
   
   <div>
  
- ## 
-  
-  ## Other Pages
-
-<a href="udacity-starter-website">Static Website Files</a>
+ ##
