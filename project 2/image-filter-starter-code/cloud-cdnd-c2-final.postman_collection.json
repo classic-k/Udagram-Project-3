@@ -6,19 +6,19 @@
   },
   "item": [
     {
-      "name": "http://image-filter-dev2222.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://timedotcom.files.wordpress.com/2019/03/kitten-report.jpg",
+      "name": "http://image-filter-dev2222.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
       "request": {
         "method": "GET",
         "header": [{ "X-API-KEY": "{{APIKEY}}" }],
         "url": {
-          "raw": "http://{{HOST}}/filteredimage?image_url=https://images.freeimages.com/images/large-previews/3c2/little-roberto-and-vitoria-1177528.jpg",
+          "raw": "http://{{HOST}}/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
           "protocol": "http",
           "host": ["{{HOST}}"],
           "path": ["filteredimage"],
           "query": [
             {
               "key": "image_url",
-              "value": "https://images.freeimages.com/images/large-previews/3c2/little-roberto-and-vitoria-1177528.jpg"
+              "value": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg"
             }
           ]
         }
