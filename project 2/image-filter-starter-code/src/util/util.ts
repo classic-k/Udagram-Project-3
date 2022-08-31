@@ -73,9 +73,9 @@ export function vetUrl(url: string): boolean {
 export const apiKey = (req: Request, res: Response, next: () => any) => {
   const key = req.headers["x-api-key"];
   if (!key || key !== "sk_cloudtravel") {
-    return res
-      .status(401)
-      .send({ message: "Unauthorized, missing token headers" });
-  }
-  next();
+    return res.status(401).send({
+      message: "Unauthorized, missing token headers",
+      status_code: 401,
+    });
+  } else next();
 };
