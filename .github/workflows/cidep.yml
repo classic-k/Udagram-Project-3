@@ -23,5 +23,5 @@ jobs:
       - name: build images
         run: docker compose -f docker-compose-build.yaml -e Docker_Username=${{secret.Docker_Username}} build -d
       - name: push images
-        run: docker compose -f docker-compose.yaml -e Docker_Username=${{secret.Docker_Username}} push -d
+        run: docker compose -f docker-compose.yaml push -d
 
