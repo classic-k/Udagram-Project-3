@@ -8,5 +8,6 @@ export const sequelize = new Sequelize({
   'host': config.host,
 'port':5432,
   'dialect': config.dialect,
+  "logging":false,
  // 'storage': ':memory:',
 });

@@ -3,19 +3,19 @@ services:
   reverseproxy:
     build: 
       context: ./udagram-proxy
-    image: reverseproxy
+    image: "classicmeone/reverseproxy"
   udagram-api-user:
     build: 
       context: ./udagram-api-user
-    image: udagram-api-user
+    image: "${Docker_Username}/udagram-api-user"
   udagram-api-feed:
     build: 
       context: ./udagram-api-feed
-    image: udagram-api-feed
+    image: "${Docker_Username}/udagram-api-feed"
   udagram-frontend:
     build: 
       context: ./udagram-frontend
-    image: udagram-frontend:local
+    image: "${Docker_Username}/udagram-frontend"
 
 
 

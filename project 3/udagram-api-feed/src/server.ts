@@ -3,6 +3,7 @@ import express from 'express';
 import {sequelize} from './sequelize';
 
 import {IndexRouter} from './controllers/v0/index.router';
+import {logger} from "./controllers/v0/feed/routes/feed.router"
 
 import bodyParser from 'body-parser';
 import {config} from './config/config';
@@ -41,7 +42,7 @@ import {V0_FEED_MODELS} from './controllers/v0/model.index';
     preflightContinue: true,
     origin: '*',
   }));
-
+  app.use(logger)
   app.use('/api/v0/', IndexRouter);
 
   // Root URI call
@@ -49,6 +50,14 @@ import {V0_FEED_MODELS} from './controllers/v0/model.index';
     res.send( '/api/v0/' );
   } );
 
+ 
+  // 404 and 500's default page
+  app.use((req: Request, res: Response, next: () => any) => {
+    res.status(404).send({ message: "Route not found", status: 404 });
+  });
+  app.use((err: Error, req: Request, res: Response, next: () => any) => {
+    res.status(500).send({ mesaage: "An error occur", status: 500 });
+  });
 
   // Start the Server
   app.listen( port, () => {

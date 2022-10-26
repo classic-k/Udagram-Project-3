@@ -6,7 +6,41 @@ import * as AWS from '../../../../aws';
 import * as c from '../../../../config/config';
 
 const router: Router = Router();
+export function logger(req: Request, res: Response, next: NextFunction) {
+    try {
+        const url = req.originalUrl
+        if (!req.headers || !req.headers.authorization) {
 
+console.log(new Date().toLocaleDateString()," Unauthenticated request ","Url: ",url)
+     return next()
+    }
+  
+    const tokenBearer = req.headers.authorization.split(' ');
+    if (tokenBearer.length != 2) {
+        console.log("Invalid token ", tokenBearer," Url: ",url)
+      return next()
+    }
+  
+    const token = tokenBearer[1];
+    return jwt.verify(token, c.config.jwt.secret, (err, decoded) => {
+        
+        if (err) {
+          console.log("Token error: ",new Date().toLocaleDateString(), " URL: ",url)
+          console.log(token, err)
+          return next()
+      }
+
+      const {email, reqID} = decoded
+      
+      console.log(new Date().toLocaleDateString()," Request ", reqID, "User: ",email, "URL: ",url)
+      return next();
+    });}
+    catch(error)
+  {
+      console.log(error)
+      return
+  }
+  }
 export function requireAuth(req: Request, res: Response, next: NextFunction) {
   if (!req.headers || !req.headers.authorization) {
     return res.status(401).send({message: 'No authorization headers.'});
@@ -28,12 +62,13 @@ export function requireAuth(req: Request, res: Response, next: NextFunction) {
 
 // Get all feed items
 router.get('/', async (req: Request, res: Response) => {
-  const items = await FeedItem.findAndCountAll({order: [['id', 'DESC']]});
+    const items = await FeedItem.findAndCountAll({order: [['id', 'DESC']]});
   items.rows.map((item) => {
     if (item.url) {
       item.url = AWS.getGetSignedUrl(item.url);
     }
   });
+  
   res.send(items);
 });
 
@@ -49,9 +84,16 @@ router.get('/:id',
 router.get('/signed-url/:fileName',
     requireAuth,
     async (req: Request, res: Response) => {
-      const {fileName} = req.params;
-      const url = AWS.getPutSignedUrl(fileName);
-      res.status(201).send({url: url});
+        try{
+            const {fileName} = req.params;
+            const url = AWS.getPutSignedUrl(fileName);
+            res.status(201).send({url: url});
+        }
+     catch(error)
+     {
+         console.log("An error occur")
+         res.status(500).send(error)
+     }
     });
 
 // Create feed with metadata

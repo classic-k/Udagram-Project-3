@@ -7,12 +7,24 @@ const router: Router = Router();
 
 router.use('/auth', AuthRouter);
 
-router.get('/');
+router.get('/', async (req: Request, res: Response) => {
+    
+    res.send("Users");
+    
+  });
 
 router.get('/:id', async (req: Request, res: Response) => {
-  const {id} = req.params;
-  const item = await User.findByPk(id);
-  res.send(item);
+
+    try
+    {
+        const {id} = req.params;
+        const item = await User.findByPk(id);
+        res.send(item);
+    }
+catch(error)
+{
+    console.log(error)
+}
 });
 
 export const UserRouter: Router = router;

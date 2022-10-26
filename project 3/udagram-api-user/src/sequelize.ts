@@ -6,7 +6,9 @@ export const sequelize = new Sequelize({
   'password': config.password,
   'database': config.database,
   'host': config.host,
-'port':5432,
+   'port':5432,
   'dialect': config.dialect,
+  'logging':false,
  // 'storage': ':memory:',
 });
+//console.log(sequelize)
