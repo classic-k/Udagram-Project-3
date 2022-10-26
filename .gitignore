@@ -54,3 +54,4 @@ UserInterfaceState.xcuserstate
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+*seten_up.sh
