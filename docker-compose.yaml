@@ -2,19 +2,10 @@ version: "3"
 services:
   reverseproxy:
       image: ${Docker_Username}/reverseproxy
-      ports:
-          - 8080:8080
-      restart: always
   backend-user:
     image: ${Docker_Username}/udagram-api-user
-    ports:
-      - 8100:80
   backend-feed:
     image: ${Docker_Username}/udagram-api-feed
-    ports:
-      - 8100:80
-
   frontend:
     image: ${Docker_Username}/udagram-frontend
-    ports:
-      - "8100:80"
+    
