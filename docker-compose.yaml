@@ -1,0 +1,11 @@
+version: "3"
+services:
+  reverseproxy:
+      image: ${Docker_Username}/reverseproxy
+  backend-user:
+    image: ${Docker_Username}/udagram-api-user
+  backend-feed:
+    image: ${Docker_Username}/udagram-api-feed
+  frontend:
+    image: ${Docker_Username}/udagram-frontend
+    
