@@ -3,25 +3,25 @@ services:
   reverseproxy:
     build:
       args:
-        - Docker_Username 
+        - Docker_Username="classicmeone" 
       context: ./udagram-proxy
     image: "$Docker_Username/reverseproxy"
   udagram-api-user:
     build:
       args:
-        - Docker_Username
+        - Docker_Username="classicmeone"
       context: ./udagram-api-user
     image: "$Docker_Username/udagram-api-user"
   udagram-api-feed:
     build:
       args:
-        - Docker_Username 
+        - Docker_Username="classicmeone" 
       context: ./udagram-api-feed
     image: "$Docker_Username/udagram-api-feed"
   udagram-frontend:
     build:
       args:
-        - Docker_Username 
+        - Docker_Username="classicmeone" 
       context: ./udagram-frontend
     image: "$Docker_Username/udagram-frontend"
 
