@@ -1,21 +1,29 @@
 version: "3.9"
 services:
   reverseproxy:
-    build: 
+    build:
+      args:
+        - Docker_Username 
       context: ./udagram-proxy
-    image: "classicmeone/reverseproxy"
+    image: "$Docker_Username/reverseproxy"
   udagram-api-user:
-    build: 
+    build:
+      args:
+        - Docker_Username
       context: ./udagram-api-user
-    image: "${Docker_Username}/udagram-api-user"
+    image: "$Docker_Username/udagram-api-user"
   udagram-api-feed:
-    build: 
+    build:
+      args:
+        - Docker_Username 
       context: ./udagram-api-feed
-    image: "${Docker_Username}/udagram-api-feed"
+    image: "$Docker_Username/udagram-api-feed"
   udagram-frontend:
-    build: 
+    build:
+      args:
+        - Docker_Username 
       context: ./udagram-frontend
-    image: "${Docker_Username}/udagram-frontend"
+    image: "$Docker_Username/udagram-frontend"
 
 
 
