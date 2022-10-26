@@ -21,7 +21,6 @@ jobs:
           username: ${{secret.Docker_Username}}
           password: ${{secret.Docker_Password}}
       - name: build images
-        run: docker compose -f docker-compose-build.yaml -e Docker_Username=${{secret.Docker_Username}} build -d
+        run: docker compose -f docker-compose-build.yaml build
       - name: push images
-        run: docker compose -f docker-compose.yaml push -d
-
+        run: docker compose -f docker-compose-build.yaml push
