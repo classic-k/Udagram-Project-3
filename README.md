@@ -5,7 +5,7 @@
 
 Monotholith to Microservice
 Monolith was deivided into 3 seperate projects:
-<a href="https://github.com/classic-k/Udagram-Frontend"> Udagram Frontent Repo </a><br>
+<br><a href="https://github.com/classic-k/Udagram-Frontend"> Udagram Frontent Repo </a><br>
 <a href="https://github.com/classic-k/Udagram-API-User"> Udagram API User Repo </a><br>
 <a href="https://github.com/classic-k/Udagram-API-Feed"> Udagram API Feed Repo </a><br>
 
